@@ -5,6 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #f3f4f6 0%, #e0e7ff 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        nav {
+            background: #6366f1;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.12);
+            padding: 0.5rem 0;
+            border-radius: 0 0 18px 18px;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #a5b4fc;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .gallery img {
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(60,72,88,0.12);
+            width: 220px;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background: #fff;
+        }
+        .gallery img:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 16px 32px rgba(99,102,241,0.18);
+        }
+        .form-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(60,72,88,0.12);
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem 2rem 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            animation: fadeInUp 1s;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .form-card div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .form-card label {
+            font-weight: 500;
+            color: #6366f1;
+        }
+        .form-card input[type="text"],
+        .form-card input[type="email"],
+        .form-card textarea,
+        .form-card select {
+            padding: 0.6rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f3f4f6;
+            transition: border 0.2s;
+        }
+        .form-card input[type="text"]:focus,
+        .form-card input[type="email"]:focus,
+        .form-card textarea:focus,
+        .form-card select:focus {
+            border: 1.5px solid #6366f1;
+            outline: none;
+        }
+        .form-card input[type="radio"] {
+            accent-color: #6366f1;
+            margin-right: 0.5rem;
+        }
+        .form-card input[type="submit"] {
+            background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.7rem 0;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.12);
+            transition: background 0.3s;
+        }
+        .form-card input[type="submit"]:hover {
+            background: linear-gradient(90deg, #818cf8 0%, #6366f1 100%);
+        }
+        .form-card h2 {
+            color: #3730a3;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            background: #6366f1;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 -2px 8px rgba(99,102,241,0.12);
+        }
+        footer i {
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.2s, transform 0.3s;
+            cursor: pointer;
+        }
+        footer i:hover {
+            color: #a5b4fc;
+            transform: scale(1.2) rotate(-8deg);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -12,54 +150,46 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="service.html">Service</a></li>
             <li><a href="contact.html">Contact</a></li>
-            
-
         </ul>
     </nav>
-    <section>
+    <section class="gallery">
         <img src="https://picsum.photos/200/300" alt="" srcset="">
         <img src="https://picsum.photos/200/300" alt="" srcset="">
         <img src="https://picsum.photos/200/300" alt="" srcset="">
     </section>
     <section>
-        <form action="">
+        <form action="" class="form-card">
         <div>
-            <label >Name</label>
+            <label>Name</label>
             <input type="text" name="name" id="name" placeholder="your name">
         </div>
         <div>
-            <label >Mail</label>
+            <label>Mail</label>
             <input type="email" name="mail" id="mail" placeholder="your mail">
         </div>
-
-        <h2>choose your gender</h2>
+        <h2>Choose your gender</h2>
         <div>
-            <label for="">Male</label>
-            <input type="radio" name="gender" id="gender">
+            <label><input type="radio" name="gender" value="male"> Male</label>
         </div>
         <div>
-            <label for="">Femal</label>
-            <input type="radio" name="gender" id="gender">
+            <label><input type="radio" name="gender" value="female"> Female</label>
         </div>
         <div>
-            <label for="">Message</label>
+            <label>Message</label>
             <textarea name="message" id="message" placeholder="your message"></textarea>
         </div>
-
         <h2>Select your contact</h2>
         <div>
         <select name="cnt" id="cnt">
             <option value="">select contact</option>
-            <option value="Electronics">Email</option>
-            <option value="Clothnig">Phone</option>
-            <option value="Books">Facbook</option>
-
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Facebook">Facebook</option>
         </select>
         </div>
         <div>
             <input type="submit" value="send">
         </div>
-        
         </form>
     </section>
     <footer>
